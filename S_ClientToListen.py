@@ -4,11 +4,14 @@ import socket
 
 s = socket.socket()
 
-PORT = 12345
+PORT = 8000
 
-s.connect(('127.0.0.1',PORT))
+HOST = socket.gethostname()
+IP = socket.gethostbyname(HOST)
+
+s.connect((IP,PORT))
 
 # receive data from the server
-print(s.recv(1024))
+print(s.recv(4096))
 
 s.close()
